@@ -3,7 +3,10 @@ local wk = require('which-key')
 vim.g.mapleader = ' '
 -- vim.keymap.set('n', '<leader>n', vim.cmd.Ex, {desc = 'Open file navigation'})
 
--- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
--- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
--- vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
--- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+-- Use the arrow keys to navigate between windows
+vim.api.nvim_set_keymap('n', '<Up>', '<C-w>k', { noremap = true, silent = true })    -- Move to the window above
+vim.api.nvim_set_keymap('n', '<Down>', '<C-w>j', { noremap = true, silent = true })  -- Move to the window below
+vim.api.nvim_set_keymap('n', '<Left>', '<C-w>h', { noremap = true, silent = true })  -- Move to the window on the left
+vim.api.nvim_set_keymap('n', '<Right>', '<C-w>l', { noremap = true, silent = true }) -- Move to the window on the right
+vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
