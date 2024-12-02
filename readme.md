@@ -1,0 +1,1 @@
+Personal configs for NeoVim.

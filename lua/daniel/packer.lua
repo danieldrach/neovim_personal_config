@@ -15,7 +15,6 @@ return require('packer').startup(function(use)
 	  end
 	}
 
-	use {"nvim-tree/nvim-web-devicons", config = {}}
 
 	use {
 	  "echasnovski/mini.icons",
@@ -35,12 +34,31 @@ return require('packer').startup(function(use)
 
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('tpope/vim-fugitive')
+
+	use {"nvim-tree/nvim-web-devicons", config = {}}
+
 	use {
 	  'nvim-tree/nvim-tree.lua',
 	  requires = {
 	    'nvim-tree/nvim-web-devicons', -- optional
 	  },
+	  config = function()
+	    require("nvim-tree").setup({
+	      view = {
+		width = 30,
+		side = "left",
+	      },
+	      renderer = {
+		icons = {
+		  show = {
+		    git = true,
+		    folder = true,
+		    file = true,
+		  },
+		},
+	      },
+	    })
+	  end,
 	}
-
 
 end)
