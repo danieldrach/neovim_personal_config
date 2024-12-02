@@ -1,6 +1,9 @@
 require('daniel.packer')
 require('daniel.remap')
 
+vim.opt.number = true       -- Absolute line number
+vim.opt.relativenumber = true -- Relative line numbers
+
 vim.opt.expandtab = true   -- Use spaces instead of tabs
 vim.opt.tabstop = 4        -- Number of spaces that a tab represents
 vim.opt.shiftwidth = 4     -- Number of spaces for autoindent

@@ -15,7 +15,6 @@ return require('packer').startup(function(use)
         end
     }
 
-
     use { -- icons for interface, file types etc.
         "echasnovski/mini.icons",
         version = false, -- Always use the latest version
