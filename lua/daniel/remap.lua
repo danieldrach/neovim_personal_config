@@ -10,3 +10,4 @@ vim.api.nvim_set_keymap('n', '<Left>', '<C-w>h', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<Right>', '<C-w>l', { noremap = true, silent = true }) -- Move to the window on the right
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { noremap = true, silent = true }) -- this is to exit terminal insert mode when it is in a separate window
 
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true }) -- changes buffers with tab
