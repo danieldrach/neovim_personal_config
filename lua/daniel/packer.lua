@@ -5,68 +5,71 @@
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
-	use {
-	  "folke/which-key.nvim",
-	  --event = "VimEnter", 
-	  config = function() 
-		  require("which-key").setup {} -- your configuration comes here or leave it empty to use the default settings
-	  end
-	}
+    use {
+        "folke/which-key.nvim",
+        --event = "VimEnter", 
+        config = function() 
+            require("which-key").setup {} -- your configuration comes here or leave it empty to use the default settings
+        end
+    }
 
 
-	use {
-	  "echasnovski/mini.icons",
-	  version = false, -- Always use the latest version
-	  config = {}
-	}
+    use {
+        "echasnovski/mini.icons",
+        version = false, -- Always use the latest version
+        config = {}
+    }
 
  
-	use {'nvim-telescope/telescope.nvim', tag = '0.1.8', requires = {{'nvim-lua/plenary.nvim'}}}
-	use { 
-		"catppuccin/nvim", 
-		as = "catppuccin", 
-		config = function()
-			vim.cmd('colorscheme catppuccin-mocha')
-		end
-		} -- this is for changing colors
+    use {'nvim-telescope/telescope.nvim', tag = '0.1.8', requires = {{'nvim-lua/plenary.nvim'}}}
 
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-	use('tpope/vim-fugitive')
+    use { 
+        "catppuccin/nvim", 
+        as = "catppuccin", 
+        config = function()
+            vim.cmd('colorscheme catppuccin-mocha')
+        end
+    } 
 
-	use {"nvim-tree/nvim-web-devicons", config = {}}
+    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
-	use {
-	  'nvim-tree/nvim-tree.lua',
-	  requires = {
-	    'nvim-tree/nvim-web-devicons', -- optional
-	  },
-	  config = function()
-	    require("nvim-tree").setup({
-	      view = {
-		width = 30,
-		side = "left",
-	      },
-	      renderer = {
-		icons = {
-		  show = {
-		    git = true,
-		    folder = true,
-		    file = true,
-		  },
-		},
-	      },
-	    })
-	  end,
-	}
+    use('tpope/vim-fugitive')
 
-	use {
-	  'nvim-lualine/lualine.nvim',
-	  requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-	  config = function() 
-		  require('lualine').setup {}
-	  end 
-	}
+    use {"nvim-tree/nvim-web-devicons", config = {}}
+
+    use {
+        'nvim-tree/nvim-tree.lua', 
+        requires = {'nvim-tree/nvim-web-devicons'},
+        config = function()
+        require("nvim-tree").setup({
+            view = {
+                width = 30,
+                side = "left",
+            },
+            renderer = {
+                icons = {
+                    show = {
+                        git = true,
+                        folder = true,
+                        file = true,
+                    },
+                },
+            },
+        })
+        end,
+    }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {
+            'nvim-tree/nvim-web-devicons', 
+            opt = true 
+        },
+        config = function() 
+            require('lualine').setup {}
+        end 
+    }
 
 end)
