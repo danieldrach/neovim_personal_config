@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use {
+    use { -- gives the popup interface that describes shortcuts
         "folke/which-key.nvim",
         --event = "VimEnter", 
         config = function() 
@@ -16,16 +16,16 @@ return require('packer').startup(function(use)
     }
 
 
-    use {
+    use { -- icons for interface, file types etc.
         "echasnovski/mini.icons",
         version = false, -- Always use the latest version
         config = {}
     }
 
  
-    use {'nvim-telescope/telescope.nvim', tag = '0.1.8', requires = {{'nvim-lua/plenary.nvim'}}}
+    use {'nvim-telescope/telescope.nvim', tag = '0.1.8', requires = {{'nvim-lua/plenary.nvim'}}} -- fuzzy finder
 
-    use { 
+    use { -- interface color theme
         "catppuccin/nvim", 
         as = "catppuccin", 
         config = function()
@@ -33,13 +33,13 @@ return require('packer').startup(function(use)
         end
     } 
 
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}) -- advanced code parsing
 
-    use('tpope/vim-fugitive')
+    use('tpope/vim-fugitive') -- git management
 
-    use {"nvim-tree/nvim-web-devicons", config = {}}
+    use {"nvim-tree/nvim-web-devicons", config = {}} -- special icon pack for tree file navigator
 
-    use {
+    use { -- popup file navigator with a lot of functionality
         'nvim-tree/nvim-tree.lua', 
         requires = {'nvim-tree/nvim-web-devicons'},
         config = function()
@@ -61,7 +61,7 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use {
+    use { -- bottom bar that gives extra info on git branch, file, changes, cursor position, etc.
         'nvim-lualine/lualine.nvim',
         requires = {
             'nvim-tree/nvim-web-devicons', 
