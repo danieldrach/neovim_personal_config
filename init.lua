@@ -15,3 +15,10 @@ vim.opt.cursorcolumn = true
 
 vim.opt.mousemodel = 'extend'
 vim.opt.clipboard:append('unnamedplus')
+
+-- ########### THEMES #############
+-- vim.cmd("colorscheme catppuccin-mocha") -- Apply Catppuccin Mocha
+-- vim.cmd("colorscheme gruvbox")          -- Apply Gruvbox
+-- vim.cmd("colorscheme tokyonight")       -- Apply TokyoNight
+-- vim.cmd("colorscheme rose-pine")        -- Apply Rose Pine
+vim.cmd("colorscheme kanagawa")         -- Apply Kanagawa
