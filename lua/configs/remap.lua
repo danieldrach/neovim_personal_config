@@ -12,10 +12,10 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = 
 --vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true }) -- changes buffers with tab
 
 -- Resize splits with arrow keys
-vim.api.nvim_set_keymap('n', '<leader><Up>', ':resize +2<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
-vim.api.nvim_set_keymap('n', '<leader><Down>', ':resize -2<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
-vim.api.nvim_set_keymap('n', '<leader><Right>', ':vertical resize +2<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
-vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -2<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
+vim.api.nvim_set_keymap('n', '<leader><Up>', ':resize +7<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
+vim.api.nvim_set_keymap('n', '<leader><Down>', ':resize -7<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
+vim.api.nvim_set_keymap('n', '<leader><Right>', ':vertical resize +7<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
+vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -7<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
 
 -- ######### OIL FILE NAVIGATOR #########
 vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
