@@ -61,3 +61,13 @@ wk.add({
   { "<leader>g", group = "Git/Fugitive" }, -- Group definition
   { "<leader>gs", vim.cmd.Git, desc = "Git Status" },
 })
+
+-- ######### FLOATERM ###########
+wk.add({
+    { "<leader>t", group = "Terminal/Floaterm" }, -- Group definition
+    { "<leader>tn", vim.cmd.FloatermNew, desc = "New Terminal" },
+    { "<leader>tt", vim.cmd.FloatermToggle, desc = "Toggle Terminal" },
+    { "<leader>tx", vim.cmd.FloatermNext, desc = "Next Terminal" },
+    { "<leader>tp", vim.cmd.FloatermPrev, desc = "Previous Terminal" },
+    { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
+})
