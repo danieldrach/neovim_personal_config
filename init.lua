@@ -13,4 +13,5 @@ vim.opt.scrolloff = 8 -- makes it so your cursor never reaches the end of the sc
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
---vim.opt.mouse = '' -- disable mouse, that makes it so you can copy through ssh, mouse interacts with the terminal, not with neovim
+vim.opt.mousemodel = 'extend'
+vim.opt.clipboard:append('unnamedplus')
