@@ -18,7 +18,7 @@ vim.api.nvim_set_keymap('n', '<leader><Right>', ':vertical resize +7<CR>', { nor
 vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -7<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
 
 -- ######### OIL FILE NAVIGATOR #########
-vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
+vim.api.nvim_set_keymap('n', '<leader>d', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
 
 -- ######### TELESCOPE SEARCH ###########
 
