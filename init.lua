@@ -13,8 +13,8 @@ vim.opt.scrolloff = 8 -- makes it so your cursor never reaches the end of the sc
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
-vim.opt.mousemodel = 'extend'
-vim.opt.clipboard:append('unnamedplus')
+vim.opt.mousemodel = 'extend' -- makes is to the mouse button clicks only deal with text selection, not any funky menus
+vim.opt.clipboard:append('unnamedplus') -- links the yank register in nvim with the system's clipboard
 
 -- ########### THEMES #############
 -- vim.cmd("colorscheme catppuccin-mocha") -- Apply Catppuccin Mocha
