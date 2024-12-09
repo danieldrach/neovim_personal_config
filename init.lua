@@ -3,6 +3,7 @@ require('configs.remap')
 
 vim.opt.number = true       -- Absolute line number
 vim.opt.relativenumber = true -- Relative line numbers
+vim.o.wrap = false -- Enables horizontal scrolling, without this text is broken when it is longer than the screen
 
 vim.opt.expandtab = true   -- Use spaces instead of tabs
 vim.opt.tabstop = 4        -- Number of spaces that a tab represents
