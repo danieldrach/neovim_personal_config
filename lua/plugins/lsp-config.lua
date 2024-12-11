@@ -15,8 +15,18 @@ return {
           },
         },
         config=function()
-            require('lspconfig').lua_ls.setup {}
+
+            local remap = require("configs.remap")
+
+            local fn_on_attach = function(client, bufnr)
+              remap.lsp_mappings(bufnr) -- Call the remap function defined in remap.lua
+            end
+
+            require('lspconfig').lua_ls.setup {
+                on_attach = fn_on_attach,
+            }
             require('lspconfig').pyright.setup {
+                on_attach = fn_on_attach,
                 settings = {
                     python = {
                         analysis = {

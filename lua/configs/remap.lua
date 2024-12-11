@@ -71,3 +71,18 @@ wk.add({
     { "<leader>tp", vim.cmd.FloatermPrev, desc = "Previous Terminal" },
     { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
 })
+
+-- ######### LSP CODE NAVIGATION ###########
+local M = {}
+
+function M.lsp_mappings(bufnr)
+  local wk = require("which-key")
+  wk.add({
+    { "<leader>l", group = 'LSP Code Nav.' },
+    { "<leader>ld", function() vim.lsp.buf.definition() end, desc = "Go to Definition", buffer = bufnr },
+    { "<leader>lr", function() vim.lsp.buf.references() end, desc = "Find References (to)", buffer = bufnr },
+    { "<leader>lh", function() vim.lsp.buf.hover() end, desc = "Hover Documentation", buffer = bufnr },
+  })
+end
+
+return M
