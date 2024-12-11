@@ -24,3 +24,4 @@ vim.opt.clipboard:append('unnamedplus') -- links the yank register in nvim with 
 -- vim.cmd("colorscheme rose-pine")        -- Apply Rose Pine
 vim.cmd("colorscheme kanagawa")         -- Apply Kanagawa
 vim.api.nvim_set_hl(0, "Visual", { bg = "#544265" }) -- selection color in visual mode, very light purple, goes reasonably well with kanegawa
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#90c4d4", bg = "NONE" }) -- light blue line shows up for separation between the windows in vsplit
