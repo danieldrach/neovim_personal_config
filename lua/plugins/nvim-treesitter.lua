@@ -31,7 +31,6 @@ return {
                 "gitcommit",
                 "json",
                 "json5",
-                "latex",
             },
      -- Specify languages
             highlight = {
