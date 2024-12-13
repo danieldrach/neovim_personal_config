@@ -17,6 +17,9 @@ vim.opt.cursorcolumn = true
 vim.opt.mousemodel = 'extend' -- makes is to the mouse button clicks only deal with text selection, not any funky menus
 vim.opt.clipboard:append('unnamedplus') -- links the yank register in nvim with the system's clipboard
 
+vim.opt.splitbelow = true -- Open horizontal splits below
+vim.opt.splitright = true -- Open vertical splits to the right
+
 -- ########### THEMES #############
 -- vim.cmd("colorscheme catppuccin-mocha") -- Apply Catppuccin Mocha
 -- vim.cmd("colorscheme gruvbox")          -- Apply Gruvbox

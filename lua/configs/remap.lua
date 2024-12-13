@@ -12,10 +12,10 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = 
 --vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true }) -- changes buffers with tab
 
 -- Resize splits with arrow keys
-vim.api.nvim_set_keymap('n', '<leader><Up>', ':resize +7<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
-vim.api.nvim_set_keymap('n', '<leader><Down>', ':resize -7<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
-vim.api.nvim_set_keymap('n', '<leader><Right>', ':vertical resize +7<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
-vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -7<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
+vim.api.nvim_set_keymap('n', '<leader><Up>', ':resize +8<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
+vim.api.nvim_set_keymap('n', '<leader><Down>', ':resize -8<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
+vim.api.nvim_set_keymap('n', '<leader><Right>', ':vertical resize +8<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
+vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -8<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
 
 -- ######### OIL FILE NAVIGATOR #########
 vim.api.nvim_set_keymap('n', '<leader>d', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
@@ -24,16 +24,8 @@ vim.api.nvim_set_keymap('n', '<leader>d', ":lua require('oil').open('.')<CR>", {
 
 local builtin = require('telescope.builtin')
 
--- wk.add({
---   { "<leader>f", group = "TelescopeFuzzyFind" }, 
---   { "<leader>fb", builtin.buffers, desc = "Find in Buffers" },
---   { "<leader>ff", builtin.find_files, desc = "Find in Files" },
---   { "<leader>fg", builtin.live_grep, desc = "Find Live Grep" },
---   { "<leader>fh", builtin.help_tags, desc = "Find Help Tags" },
--- })
---
--- local builtin = require('telescope.builtin')
 
+-- ######### TELESCOPE REMAPS, MAKING IT ONLY DO GIT TRACKED FILES ###########
 wk.add({
   { "<leader>f", group = "TelescopeFuzzyFind" },
   { "<leader>fb", builtin.buffers, desc = "Find in Buffers" },
