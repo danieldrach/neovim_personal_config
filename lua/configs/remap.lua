@@ -12,15 +12,31 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = 
 --vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true }) -- changes buffers with tab
 
 -- Resize splits with arrow keys
-vim.api.nvim_set_keymap('n', '<leader><Up>', ':resize +8<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
-vim.api.nvim_set_keymap('n', '<leader><Down>', ':resize -8<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
-vim.api.nvim_set_keymap('n', '<leader><Right>', ':vertical resize +8<CR>', { noremap = true, silent = true, desc = 'win.resize(+)' })
-vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -8<CR>', { noremap = true, silent = true, desc = 'win.resize(-)' })
+vim.api.nvim_set_keymap('n', '<leader><Up>', ':resize +8<CR>', { noremap = true, silent = true, desc = 'win.vresize(+)' })
+vim.api.nvim_set_keymap('n', '<leader><Down>', ':resize -8<CR>', { noremap = true, silent = true, desc = 'win.vresize(-)' })
+vim.api.nvim_set_keymap('n', '<leader><Right>', ':vertical resize +8<CR>', { noremap = true, silent = true, desc = 'win.hresize(+)' })
+vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -8<CR>', { noremap = true, silent = true, desc = 'win.hresize(-)' })
+-- wk.add({
+--     { "<leader>w", group = "Resize Windows" }, -- Group definition
+--     { "<leader>w<Up>", ":resize +8<CR>", desc = "Increase window height" },
+--     { "<leader>w<Down>", ":resize -8<CR>", desc = "Decrease window height" },
+--     { "<leader>w<Right>", ":vertical resize +8<CR>", desc = "Increase window width" },
+--     { "<leader>w<Left>", ":vertical resize -8<CR>", desc = "Decrease window width" },
+-- })
 
 -- ######### OIL FILE NAVIGATOR #########
-vim.api.nvim_set_keymap('n', '<leader>d', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
+vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
 
 -- ######### TELESCOPE SEARCH ###########
+wk.add({
+    { "<leader>t", group = "Terminal/Floaterm" }, -- Group definition
+    { "<leader>tn", vim.cmd.FloatermNew, desc = "New Terminal" },
+    { "<leader>tt", vim.cmd.FloatermToggle, desc = "Toggle Terminal" },
+    { "<leader>tx", vim.cmd.FloatermNext, desc = "Next Terminal" },
+    { "<leader>tp", vim.cmd.FloatermPrev, desc = "Previous Terminal" },
+    { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
+})
+
 
 local builtin = require('telescope.builtin')
 
@@ -76,5 +92,27 @@ function M.lsp_mappings(bufnr)
     { "<leader>lh", function() vim.lsp.buf.hover() end, desc = "Hover Documentation", buffer = bufnr },
   })
 end
+
+
+-- ######### IPYTHON CELL STYLE EXECUTION FOR PYTHON ###########
+-- wk.add({
+--     { "<leader>p", group = "IPython" }, -- Group definition
+--     { "<leader>ps", vim.cmd.IPython, desc = "Start IPython" },
+--     { "<leader>pl", vim.cmd.IPyRun, desc = "Execute current line" },
+--     { "<leader>pf", vim.cmd.IPyRunFile, desc = "Execute current file" },
+--     { "<leader>ps", function() vim.cmd.normal(":'<,'>IPyRun") end, mode = "v", desc = "Execute selected text" },
+--     { "<leader>pc", "<Plug>(IPy-RunCell)", desc = "Execute current cell" },
+--     { "<leader>pq", vim.cmd.IPyDisconnect, desc = "Disconnect IPython" },
+-- })
+
+wk.add({
+    { "<leader>p", group = "IPython" }, -- Group definition
+    { "<leader>ps", ":IPython<CR>", desc = "Connect to IPython" },
+    { "<leader>pl", "<Plug>(IPy-Run)", desc = "Run line or selection" },
+    -- { "<leader>pf", ":IPython --existing<CR>", desc = "Connect to existing IPython session" },
+    { "<leader>pf", "<Plug>(IPy-RunAll)", desc = "Run File" },
+    { "<leader>pc", "<Plug>(IPy-RunCell)", desc = "Run Current Cell" },
+    { "<leader>pq", ":IPython --kill<CR>", desc = "Quit IPython" },
+})
 
 return M

@@ -3,13 +3,15 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      -- Add your configuration options here
+      cmdline = {
+        format = {
+          cmdline = { icon = ":" },
+        },
+      },
     },
     dependencies = {
-      -- Required dependency
-      "MunifTanjim/nui.nvim",
-      -- Optional dependency for notification view
-      "rcarriga/nvim-notify",
+      "MunifTanjim/nui.nvim",-- Required dependency
+      "rcarriga/nvim-notify", -- Optional dependency for notification view
     }
   }
 }

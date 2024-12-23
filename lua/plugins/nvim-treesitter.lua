@@ -3,6 +3,7 @@ return {
     build = ":TSUpdate", -- Automatically run `:TSUpdate` after installation
     event = {"BufReadPre","BufNewFile"}, -- lazy loading the plugin only when a new buffer is created or when a file is open into a buffer
     config = function()
+
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "lua",
@@ -32,6 +33,11 @@ return {
                 "json",
                 "json5",
             },
+
+            modules = {},
+            sync_install = true,
+            ignore_install = {},
+
      -- Specify languages
             highlight = {
                 enable = true, -- Enable syntax highlighting
