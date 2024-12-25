@@ -25,6 +25,7 @@ return {
             require('lspconfig').lua_ls.setup {
                 on_attach = fn_on_attach,
             }
+
             require('lspconfig').pyright.setup {
                 on_attach = fn_on_attach,
                 settings = {
@@ -35,6 +36,19 @@ return {
                     }
                 }
             }
+
+            require('lspconfig').gopls.setup {
+                on_attach = fn_on_attach, -- Use the same `on_attach` function
+                settings = {
+                    gopls = {
+                        analyses = {
+                            unusedparams = true,
+                        },
+                        staticcheck = true,
+                    },
+                },
+            }
+
         end,
     }
 }
