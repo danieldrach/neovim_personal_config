@@ -80,6 +80,9 @@ wk.add({
     { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
 })
 
+-- ######### VENV SELECTOR ###########
+wk.add({ "<leader>v", "<cmd>VenvSelect<CR>", desc = "Select .venv" })
+
 -- ######### LSP CODE NAVIGATION ###########
 local M = {}
 
