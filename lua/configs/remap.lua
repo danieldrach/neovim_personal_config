@@ -27,7 +27,7 @@ vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -8<CR>', { nore
 -- ######### OIL FILE NAVIGATOR #########
 vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
 
--- ######### TELESCOPE SEARCH ###########
+-- ######### FLOATERM REMAPS ###########
 wk.add({
     { "<leader>t", group = "Terminal/Floaterm" }, -- Group definition
     { "<leader>tn", vim.cmd.FloatermNew, desc = "New Terminal" },
@@ -38,10 +38,23 @@ wk.add({
 })
 
 
-local builtin = require('telescope.builtin')
+-- ######### HARPOON REMAPS ###########
+local harpoon_mark = require("harpoon.mark")
+local harpoon_ui= require("harpoon.ui")
+
+wk.add({
+    { "<leader>h", group = "Harpoon" },
+    { "<leader>ha", function() harpoon_mark.add_file() end, desc = "Add file to Harpoon" },
+    { "<leader>hh", function() harpoon_ui.toggle_quick_menu() end, desc = "Toggle Harpoon Menu" },
+    { "<leader>h1", function() harpoon_ui.nav_file(1) end, desc = "Go to Harpoon file 1" },
+    { "<leader>h2", function() harpoon_ui.nav_file(2) end, desc = "Go to Harpoon file 2" },
+    { "<leader>h3", function() harpoon_ui.nav_file(3) end, desc = "Go to Harpoon file 3" },
+    { "<leader>h4", function() harpoon_ui.nav_file(4) end, desc = "Go to Harpoon file 4" },
+})
 
 
 -- ######### TELESCOPE REMAPS, MAKING IT ONLY DO GIT TRACKED FILES ###########
+local builtin = require('telescope.builtin')
 wk.add({
   { "<leader>f", group = "TelescopeFuzzyFind" },
   { "<leader>fb", builtin.buffers, desc = "Find in Buffers" },
