@@ -19,6 +19,7 @@ vim.opt.clipboard:append('unnamedplus') -- links the yank register in nvim with 
 
 vim.opt.splitbelow = true -- Open horizontal splits below
 vim.opt.splitright = true -- Open vertical splits to the right
+vim.opt.smoothscroll = true 
 
 -- ########### THEMES #############
 -- vim.cmd("colorscheme catppuccin-mocha") -- Apply Catppuccin Mocha
