@@ -29,3 +29,10 @@ vim.opt.smoothscroll = true
 vim.cmd("colorscheme kanagawa")         -- Apply Kanagawa
 vim.api.nvim_set_hl(0, "Visual", { bg = "#544265" }) -- selection color in visual mode, very light purple, goes reasonably well with kanegawa
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#90c4d4", bg = "NONE" }) -- light blue line shows up for separation between the windows in vsplit
+
+-- setting the default terminal for windows and linux
+if vim.fn.has("win32") == 1 then
+    vim.g.floaterm_shell = "powershell" -- or "C:/Program Files/Git/bin/bash.exe"
+else
+    vim.g.floaterm_shell = vim.o.shell -- Use default shell on Linux
+end
