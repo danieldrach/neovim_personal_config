@@ -8,5 +8,7 @@ return {
         ext = '.md',
       },
     }
+    vim.g.vimwiki_markdown_link_ext = 1
+    vim.g.vimwiki_listsyms = ' ○◐●✓'
   end,
 }

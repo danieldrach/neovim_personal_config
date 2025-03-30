@@ -77,6 +77,13 @@ wk.add({
 })
 
 
+-- ######### NVIM WIKI REMAPS ###########
+wk.add({
+  { "<leader>w", group = "Vimwiki" },
+  { "<leader>wx", "<Plug>VimwikiToggleListItem", desc = "Toggle task state", mode = "n", noremap = false },
+})
+
+
 -- ######### FUTIGIVE GIT MANAGER ###########
 wk.add({
   { "<leader>g", group = "Git/Fugitive" }, -- Group definition
