@@ -1,5 +1,9 @@
 return {
   'ThePrimeagen/harpoon',
   dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {},
+  opts = {
+    menu = {
+        width = 100,
+    }
+  },
 }
