@@ -9,6 +9,7 @@ return {
       },
     }
     vim.g.vimwiki_markdown_link_ext = 1
-    vim.g.vimwiki_listsyms = ' ○◐●✓'
+    vim.g.vimwiki_listsyms = ' ◐✓✘'
+    -- vim.g.vimwiki_listsyms = '　🟡✅❌' -- first character is U+3000
   end,
 }
