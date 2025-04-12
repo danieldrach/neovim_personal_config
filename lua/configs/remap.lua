@@ -1,4 +1,6 @@
 local wk = require('which-key')
+local dap = require("dap")
+local dapui = require("dapui") -- If using dapui.toggle() directly
 
 -- vim.keymap.set('n', '<leader>n', vim.cmd.Ex, {desc = 'Open file navigation'})
 
@@ -115,6 +117,7 @@ function M.lsp_mappings(bufnr)
     { "<leader>ld", function() vim.lsp.buf.definition() end, desc = "Go to Definition", buffer = bufnr },
     { "<leader>lr", function() vim.lsp.buf.references() end, desc = "Find References (to)", buffer = bufnr },
     { "<leader>lh", function() vim.lsp.buf.hover() end, desc = "Hover Documentation", buffer = bufnr },
+    { "<leader>lv", function() vim.lsp.buf.rename() end, desc = "Refactor variable", buffer = bufnr },
   })
 end
 
@@ -138,6 +141,20 @@ wk.add({
     { "<leader>pf", "<Plug>(IPy-RunAll)", desc = "Run File" },
     { "<leader>pc", "<Plug>(IPy-RunCell)", desc = "Run Current Cell" },
     { "<leader>pq", ":IPython --kill<CR>", desc = "Quit IPython" },
+})
+
+
+-- ######### KEYBINDINGS FOR DEBUGGER UI ###########
+wk.add({
+  { "<leader>d", group = "Debugger/DAP" }, -- Group definition
+  { "<leader>db", function() dap.toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+  { "<leader>dc", function() dap.continue() end, desc = "Continue / Start" },
+  { "<leader>do", function() dap.step_over() end, desc = "Step Over" },
+  { "<leader>di", function() dap.step_into() end, desc = "Step Into" },
+  { "<leader>dO", function() dap.step_out() end, desc = "Step Out" },
+  { "<leader>dq", function() dap.terminate() end, desc = "Terminate Debugging" },
+  -- Use require('dapui') inside if dapui isn't guaranteed to be loaded globally
+  { "<leader>du", function() require("dapui").toggle() end, desc = "Toggle DAP UI" },
 })
 
 return M
