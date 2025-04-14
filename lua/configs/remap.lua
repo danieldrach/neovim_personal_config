@@ -149,6 +149,9 @@ wk.add({
   { "<leader>d", group = "Debugger/DAP" }, -- Group definition
   { "<leader>db", function() dap.toggle_breakpoint() end, desc = "Toggle Breakpoint" },
   { "<leader>dc", function() dap.continue() end, desc = "Continue / Start" },
+  { "<leader>dp", function()
+      require("dap").run(require("dap").configurations.python[1])
+    end, desc = "Run Current File (Python)" },
   { "<leader>do", function() dap.step_over() end, desc = "Step Over" },
   { "<leader>di", function() dap.step_into() end, desc = "Step Into" },
   { "<leader>dO", function() dap.step_out() end, desc = "Step Out" },
