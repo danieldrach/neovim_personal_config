@@ -13,6 +13,7 @@ return {
             require('venv-selector').setup({
                 search_workspace = false,
                 path = vim.fn.getcwd(),
+                search_method = "telescope",
             })
         end,
         keys = {
