@@ -13,6 +13,14 @@ return {
             require('venv-selector').setup({
                 search_workspace = false,
                 path = vim.fn.getcwd(),
+                search_dirs = {
+                    -- Exclude common directories that are not needed
+                    '.git',
+                    '.idea',
+                    '.vscode',
+                    '__pycache__',
+                    'node_modules',
+                },
                 search_method = "telescope",
             })
         end,

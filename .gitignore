@@ -1,2 +1,5 @@
 plugin/packer_compiled.lua
 *.json
+
+# Ignore configuration files containing sensitive information
+lua/configs/config.lua
