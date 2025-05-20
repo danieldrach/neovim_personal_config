@@ -11,13 +11,22 @@ return {
     "nvim-tree/nvim-web-devicons", -- optional
   },
   opts = {
-    provider = "openai",
+    provider = "claude",
     openai = {
       endpoint = "https://api.openai.com/v1",
       model = "gpt-4o",
       timeout = 30000,
       temperature = 0,
       max_completion_tokens = 8192,
+      api_key = vim.env.OPENAI_API_KEY,
+    },
+    anthropic = {
+      endpoint = "https://api.anthropic.com/v1",
+      model = "claude-3-7-sonnet-20250219",
+      timeout = 30000,
+      temperature = 0,
+      max_tokens = 8192,
+      api_key = vim.env.ANTHROPIC_API_KEY,
     },
   },
 }
