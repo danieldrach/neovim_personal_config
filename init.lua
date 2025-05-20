@@ -36,3 +36,7 @@ if vim.fn.has("win32") == 1 then
 else
     vim.g.floaterm_shell = vim.o.shell -- Use default shell on Linux
 end
+
+-- Disable swapfile usage
+vim.opt.swapfile = false
+
