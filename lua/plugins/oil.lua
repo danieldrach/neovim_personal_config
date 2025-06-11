@@ -32,9 +32,5 @@ return {
   -- Optional dependencies
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-  -- Add keybinding to open Oil in float mode
-  keys = {
-    { "<leader>o", function() require("oil").open_float() end, desc = "Open Oil file explorer (float)" },
-  },
 }
 
