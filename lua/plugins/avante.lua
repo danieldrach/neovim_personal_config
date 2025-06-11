@@ -18,7 +18,7 @@ return {
           timeout = 30000,
           extra_request_body={
               temperature = 0,
-              max_tokens = 4096,
+              max_tokens = 512,
           },  
           -- api_key = vim.env.ANTHROPIC_API_KEY,
           -- disable_tools = true,
