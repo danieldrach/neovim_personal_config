@@ -6,7 +6,6 @@ return {
 
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
-                "lua",
                 "python",
                 "javascript",
                 "html",
@@ -22,9 +21,6 @@ return {
                 "regex",
                 "sql",
                 "xml",
-                "zig",
-                "arduino",
-                "cpp",
                 "csv",
                 "git_config",
                 "git_rebase",
