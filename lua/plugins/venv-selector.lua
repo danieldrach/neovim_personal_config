@@ -12,6 +12,9 @@ return {
         config = function()
             require('venv-selector').setup({
                 search_workspace = false,
+                parents=1,
+                name = {"venv", ".venv", "env", ".env"},
+                exclude_dirs = { ".git", ".idea", "node_modules", "_pycache_"},
                 path = vim.fn.getcwd(),
                 -- Only look for common virtual environment directory names
                 name_patterns = {
