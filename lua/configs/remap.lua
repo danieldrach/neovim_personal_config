@@ -28,7 +28,7 @@ vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -8<CR>', { nore
 
 -- ######### OIL FILE NAVIGATOR #########
  -- vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil)'  })
-vim.api.nvim_set_keymap('n', '<leader>n', ":Oil --float .<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil Float)' }) -- opens in floating window
+vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open_float('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil Float)' }) -- opens in floating window
 
 
 -- ######### FLOATERM REMAPS ###########
