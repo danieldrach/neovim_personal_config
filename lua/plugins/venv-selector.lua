@@ -11,12 +11,13 @@ return {
         branch = "regexp", -- This is the regexp branch, use this for the new version
         config = function()
             require('venv-selector').setup({
-                search_workspace = false,
-                parents=1,
-                name = {"venv", ".venv", "env", ".env"},
-                exclude_dirs = { ".git", ".idea", "node_modules", "_pycache_"},
-                path = vim.fn.getcwd(),
-                search_method = "telescope",
+                {
+                  search = {
+                    cwd = {
+                      command = "fd '/bin/python$' $CWD --full-path --color never -E /proc -I -a -L",
+                    },
+                  },
+                }
             })
         end,
         keys = {
