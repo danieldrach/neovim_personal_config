@@ -60,24 +60,26 @@ wk.add({
 -- ######### TELESCOPE REMAPS, MAKING IT ONLY DO GIT TRACKED FILES ###########
 local builtin = require('telescope.builtin')
 wk.add({
-  { "<leader>f", group = "TelescopeFuzzyFind" },
-  { "<leader>fb", builtin.buffers, desc = "Find in Buffers" },
-  { "<leader>ff", function()
-      local ok = pcall(builtin.git_files, { show_untracked = true })
-      if not ok then
-        builtin.find_files()
-      end
-    end,
-    desc = "Find Git Files (fallback to All Files)",
-  },
-  { "<leader>fg", function()
-      builtin.live_grep({
-        cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
-      })
-    end,
-    desc = "Grep in Git Repo",
-  },
-  { "<leader>fh", builtin.help_tags, desc = "Find Help Tags" },
+    { "<leader>f", group = "TelescopeFuzzyFind" },
+    { "<leader>fb", builtin.buffers, desc = "Find in Buffers" },
+    { "<leader>ff", function()
+        local ok = pcall(builtin.git_files, { show_untracked = true })
+            if not ok then
+                builtin.find_files()
+            end
+        end,
+        desc = "Find Git Files (fallback to All Files)",
+    },
+    { "<leader>fg", function()
+        local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+            if vim.fn.isdirectory(git_root) == 1 then
+                builtin.live_grep({ cwd = git_root })
+            else
+                builtin.live_grep()
+            end
+        end,
+        desc = "Grep in Git Repo (fallback to cwd)",
+    },
 })
 
 
