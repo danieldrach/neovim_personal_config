@@ -22,16 +22,13 @@ return {
               remap.lsp_mappings(bufnr) -- Call the remap function defined in remap.lua
             end
 
-            -- Initialize lspconfig so its server configs are added to the runtimepath
-            require('lspconfig')
-
-            -- Global defaults for all language servers
-            vim.lsp.config('*', {
+            -- Configure LSP servers using the new vim.lsp.config API
+            vim.lsp.config('lua_ls', {
                 on_attach = fn_on_attach,
             })
 
-            -- Server-specific overrides
             vim.lsp.config('pyright', {
+                on_attach = fn_on_attach,
                 settings = {
                     python = {
                         analysis = {
@@ -42,6 +39,7 @@ return {
             })
 
             vim.lsp.config('gopls', {
+                on_attach = fn_on_attach,
                 settings = {
                     gopls = {
                         analyses = {
@@ -49,11 +47,8 @@ return {
                         },
                         staticcheck = true,
                     },
-                },
+                }
             })
-
-            -- Enable desired language servers
-            vim.lsp.enable({ 'lua_ls', 'pyright', 'gopls' })
 
         end,
     }
