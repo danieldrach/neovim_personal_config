@@ -4,20 +4,31 @@ return {
         dependencies = {
             "nvim-neotest/nvim-nio",
             "rcarriga/nvim-dap-ui",
-            "mfussenegger/nvim-dap-python",
             "theHamsta/nvim-dap-virtual-text",
         },
         config = function()
-
             local dap = require("dap")
             local dapui = require("dapui")
-            local dap_python = require("dap-python")
-
+            
             require("dapui").setup({})
-            require("nvim-dap-virtual-text").setup({commented = true,}) -- Show virtual text alongside comment
+            require("nvim-dap-virtual-text").setup({commented = true})
 
-            local python_bin = vim.loop.os_uname().sysname == "Windows_NT" and "python" or "python3"
-            dap_python.setup(python_bin)
+            -- Cross-platform Python executable path
+            local function get_python_executable()
+                local mason_path = vim.fn.stdpath('data') .. '/mason/packages/debugpy/venv'
+                if vim.loop.os_uname().sysname == "Windows_NT" then
+                    return mason_path .. '/Scripts/python.exe'
+                else
+                    return mason_path .. '/bin/python'
+                end
+            end
+
+            -- Setup Python debugging using Mason-installed debugpy
+            dap.adapters.python = {
+                type = 'executable';
+                command = get_python_executable();
+                args = { '-m', 'debugpy.adapter' };
+            }
 
             vim.fn.sign_define("DapBreakpoint", {
                 text = "",
@@ -43,10 +54,11 @@ return {
             -- Add Python configurations
             dap.configurations.python = {
                 {
-                    type = 'python', -- Connects to dap-python
+                    type = 'python',
                     request = 'launch',
                     name = "Launch current file",
-                    program = "${file}", -- Debug the currently open file
+                    program = "${file}",
+                    python = get_python_executable(),
                 },
             }
 
