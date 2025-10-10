@@ -16,7 +16,10 @@ return {
                       command = "fd '/bin/python$' $CWD --full-path --color never -E /proc -I -a -L",
                     },
                   },
-                }
+                },
+                options = {
+                    set_environment_variables = true, -- This sets VIRTUAL_ENV environment variable
+                },
             })
         end,
         keys = {
