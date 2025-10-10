@@ -31,14 +31,14 @@ vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -8<CR>', { nore
 vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open_float('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil Float)' }) -- opens in floating window
 
 
--- ######### FLOATERM REMAPS ###########
+-- ######### TOGGLETERM REMAPS ###########
 wk.add({
-    { "<leader>t", group = "Terminal/Floaterm" }, -- Group definition
-    { "<leader>tn", vim.cmd.FloatermNew, desc = "New Terminal" },
-    { "<leader>tt", vim.cmd.FloatermToggle, desc = "Toggle Terminal" },
-    { "<leader>tx", vim.cmd.FloatermNext, desc = "Next Terminal" },
-    { "<leader>tp", vim.cmd.FloatermPrev, desc = "Previous Terminal" },
-    { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
+    { "<leader>t", group = "Terminal/ToggleTerm" }, -- Group definition
+    { "<leader>tn", "<cmd>ToggleTerm size=80 direction=float<CR>", desc = "New Float Terminal" },
+    { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Toggle Terminal" },
+    { "<leader>tx", "<cmd>ToggleTermNext<CR>", desc = "Next Terminal" },
+    { "<leader>tp", "<cmd>ToggleTermPrev<CR>", desc = "Previous Terminal" },
+    { "<leader>tk", "<cmd>ToggleTermKill<CR>", desc = "Kill Terminal" },
 })
 
 
@@ -96,15 +96,6 @@ wk.add({
   { "<leader>gs", vim.cmd.Git, desc = "Git Status" },
 })
 
--- ######### FLOATERM ###########
-wk.add({
-    { "<leader>t", group = "Terminal/Floaterm" }, -- Group definition
-    { "<leader>tn", vim.cmd.FloatermNew, desc = "New Terminal" },
-    { "<leader>tt", vim.cmd.FloatermToggle, desc = "Toggle Terminal" },
-    { "<leader>tx", vim.cmd.FloatermNext, desc = "Next Terminal" },
-    { "<leader>tp", vim.cmd.FloatermPrev, desc = "Previous Terminal" },
-    { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
-})
 
 -- ######### VENV SELECTOR ###########
 wk.add({ "<leader>v", "<cmd>VenvSelect<CR>", desc = "Select .venv" })
