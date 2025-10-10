@@ -162,4 +162,12 @@ wk.add({
   { "<leader>du", function() require("dapui").toggle() end, desc = "Toggle DAP UI" },
 })
 
+-- ######### MASON LSP MANAGER ###########
+wk.add({
+    { "<leader>m", group = "Mason" },
+    { "<leader>mi", ":Mason<CR>", desc = "Open Mason" },
+    { "<leader>mu", ":MasonUpdate<CR>", desc = "Update Mason packages" },
+    { "<leader>ml", ":MasonLog<CR>", desc = "Open Mason log" },
+})
+
 return M
