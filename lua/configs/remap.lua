@@ -36,9 +36,10 @@ wk.add({
     { "<leader>t", group = "Terminal/ToggleTerm" }, -- Group definition
     { "<leader>tn", "<cmd>ToggleTerm size=80 direction=float<CR>", desc = "New Float Terminal" },
     { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Toggle Terminal" },
-    { "<leader>tx", "<cmd>ToggleTermNext<CR>", desc = "Next Terminal" },
-    { "<leader>tp", "<cmd>ToggleTermPrev<CR>", desc = "Previous Terminal" },
-    { "<leader>tk", "<cmd>ToggleTermKill<CR>", desc = "Kill Terminal" },
+    { "<leader>t1", "<cmd>1ToggleTerm<CR>", desc = "Terminal 1" },
+    { "<leader>t2", "<cmd>2ToggleTerm<CR>", desc = "Terminal 2" },
+    { "<leader>tl", "<cmd>TermSelect<CR>", desc = "List/Select Terminals" },
+    { "<leader>ta", "<cmd>ToggleTermToggleAll<CR>", desc = "Toggle All Terminals" },
 })
 
 
