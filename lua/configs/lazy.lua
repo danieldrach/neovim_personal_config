@@ -23,7 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     spec = { { import = "plugins" },}, -- searches in the ./lua/plugins folder and load all the files there
     install = { colorscheme = { "habamax" } },-- colorscheme that will be used when installing plugins.
-    checker = { enabled = true }, -- automatically check for plugin updates
+    checker = { enabled = false }, -- automatically check for plugin updates
 })
 
 

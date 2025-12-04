@@ -31,14 +31,15 @@ vim.api.nvim_set_keymap('n', '<leader><Left>', ':vertical resize -8<CR>', { nore
 vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open_float('.')<CR>", { noremap = true, silent = true, desc = 'File Nav (Oil Float)' }) -- opens in floating window
 
 
--- ######### FLOATERM REMAPS ###########
+-- ######### TOGGLETERM REMAPS ###########
 wk.add({
-    { "<leader>t", group = "Terminal/Floaterm" }, -- Group definition
-    { "<leader>tn", vim.cmd.FloatermNew, desc = "New Terminal" },
-    { "<leader>tt", vim.cmd.FloatermToggle, desc = "Toggle Terminal" },
-    { "<leader>tx", vim.cmd.FloatermNext, desc = "Next Terminal" },
-    { "<leader>tp", vim.cmd.FloatermPrev, desc = "Previous Terminal" },
-    { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
+    { "<leader>t", group = "Terminal/ToggleTerm" }, -- Group definition
+    { "<leader>tn", "<cmd>ToggleTerm size=80 direction=float<CR>", desc = "New Float Terminal" },
+    { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Toggle Terminal" },
+    { "<leader>t1", "<cmd>1ToggleTerm<CR>", desc = "Terminal 1" },
+    { "<leader>t2", "<cmd>2ToggleTerm<CR>", desc = "Terminal 2" },
+    { "<leader>tl", "<cmd>TermSelect<CR>", desc = "List/Select Terminals" },
+    { "<leader>ta", "<cmd>ToggleTermToggleAll<CR>", desc = "Toggle All Terminals" },
 })
 
 
@@ -96,15 +97,6 @@ wk.add({
   { "<leader>gs", vim.cmd.Git, desc = "Git Status" },
 })
 
--- ######### FLOATERM ###########
-wk.add({
-    { "<leader>t", group = "Terminal/Floaterm" }, -- Group definition
-    { "<leader>tn", vim.cmd.FloatermNew, desc = "New Terminal" },
-    { "<leader>tt", vim.cmd.FloatermToggle, desc = "Toggle Terminal" },
-    { "<leader>tx", vim.cmd.FloatermNext, desc = "Next Terminal" },
-    { "<leader>tp", vim.cmd.FloatermPrev, desc = "Previous Terminal" },
-    { "<leader>tk", vim.cmd.FloatermKill, desc = "Kill Terminal" },
-})
 
 -- ######### VENV SELECTOR ###########
 wk.add({ "<leader>v", "<cmd>VenvSelect<CR>", desc = "Select .venv" })
@@ -160,6 +152,14 @@ wk.add({
   { "<leader>dq", function() dap.terminate() end, desc = "Terminate Debugging" },
   -- Use require('dapui') inside if dapui isn't guaranteed to be loaded globally
   { "<leader>du", function() require("dapui").toggle() end, desc = "Toggle DAP UI" },
+})
+
+-- ######### MASON LSP MANAGER ###########
+wk.add({
+    { "<leader>m", group = "Mason" },
+    { "<leader>mi", ":Mason<CR>", desc = "Open Mason" },
+    { "<leader>mu", ":MasonUpdate<CR>", desc = "Update Mason packages" },
+    { "<leader>ml", ":MasonLog<CR>", desc = "Open Mason log" },
 })
 
 return M

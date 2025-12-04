@@ -4,7 +4,6 @@ return {
         dependencies = {
             "neovim/nvim-lspconfig",
             "mfussenegger/nvim-dap",
-            "mfussenegger/nvim-dap-python", --optional
             { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
         },
         lazy = false,
@@ -17,7 +16,10 @@ return {
                       command = "fd '/bin/python$' $CWD --full-path --color never -E /proc -I -a -L",
                     },
                   },
-                }
+                },
+                options = {
+                    set_environment_variables = true, -- This sets VIRTUAL_ENV environment variable
+                },
             })
         end,
         keys = {
