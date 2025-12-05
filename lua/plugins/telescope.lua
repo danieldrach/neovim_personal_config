@@ -1,6 +1,7 @@
 return {
     "nvim-telescope/telescope.nvim",
     version = "0.1.8", -- Use the specified tag
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" }, -- Required dependency
     config = function()
         local actions = require("telescope.actions") 

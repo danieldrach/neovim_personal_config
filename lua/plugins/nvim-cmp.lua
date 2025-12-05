@@ -2,6 +2,7 @@ return {
     -- Autocompletion
     { 
         "hrsh7th/nvim-cmp",
+        event = "VeryLazy",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",  -- For LSP completions
             "hrsh7th/cmp-buffer",    -- For buffer text completions

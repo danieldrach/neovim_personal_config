@@ -1,6 +1,7 @@
 return {
     "akinsho/toggleterm.nvim",
     version = "*",
+    event = "VeryLazy",
     config = function()
         -- Configure PowerShell as the default shell on Windows
         if vim.fn.has("win32") == 1 then

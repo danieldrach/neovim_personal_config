@@ -1,5 +1,6 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
+  ft = { "markdown", "vimwiki" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "echasnovski/mini.nvim",
