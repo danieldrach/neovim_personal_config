@@ -11,11 +11,18 @@ return {
         config = function()
             require('venv-selector').setup({
                 {
-                  search = {
-                    cwd = {
-                      command = "fd '/bin/python$' $CWD --full-path --color never -E /proc -I -a -L",
+                    search = {
+                        cwd = {
+                            command = (function()
+
+                                if vim.fn.has("win32") == 1 then
+                                    return "fd -g 'Scripts/python.exe' $CWD --max-depth 4"
+                                end
+
+                                return "fd '/bin/python$' $CWD --full-path --color never -E /proc -I -a -L"
+                            end)(),
+                        },
                     },
-                  },
                 },
                 options = {
                     set_environment_variables = true, -- This sets VIRTUAL_ENV environment variable
