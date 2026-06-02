@@ -33,7 +33,11 @@ return {
                 settings = {
                     python = {
                         analysis = {
-                            typeCheckingMode = 'off'
+                            autoSearchPaths = true,
+                            diagnosticMode = "openFilesOnly",
+                            typeCheckingMode = "basic",
+                            useLibraryCodeForTypes = true,
+                            reportPossiblyUnboundVariable = "warning",
                         }
                     }
                 }
