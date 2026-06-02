@@ -112,6 +112,7 @@ function M.lsp_mappings(bufnr)
     { "<leader>lr", function() vim.lsp.buf.references() end, desc = "Find References (to)", buffer = bufnr },
     { "<leader>lh", function() vim.lsp.buf.hover() end, desc = "Hover Documentation", buffer = bufnr },
     { "<leader>lv", function() vim.lsp.buf.rename() end, desc = "Refactor variable", buffer = bufnr },
+    { "<leader>le", function() vim.diagnostic.open_float() end, desc = "Show Line Diagnostics", buffer = bufnr },
   })
 end
 
