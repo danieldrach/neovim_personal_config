@@ -10,6 +10,7 @@ return {
         config = function()
             local dap = require("dap")
             local dapui = require("dapui")
+            local last_args = {}
             
             require("dapui").setup({})
             require("nvim-dap-virtual-text").setup({commented = true})
@@ -75,6 +76,12 @@ return {
                     request = 'launch',
                     name = "Launch current file",
                     program = "${file}",
+                    args = function()
+                        local file = vim.fn.expand("%:p")
+                        local input = vim.fn.input("Arguments: ", last_args[file] or "")
+                        last_args[file] = input
+                        return vim.split(input, " ", { trimempty = true })
+                    end,
                     python = function() return get_venv_python() end, -- Make this a function that evaluates at runtime
                 },
             }
