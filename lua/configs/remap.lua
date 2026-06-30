@@ -95,6 +95,14 @@ wk.add({
 wk.add({
   { "<leader>g", group = "Git/Fugitive" }, -- Group definition
   { "<leader>gs", vim.cmd.Git, desc = "Git Status" },
+  { "<leader>gd", function()
+      local lib = require("diffview.lib")
+      if lib.get_current_view() then
+        vim.cmd("DiffviewClose")
+      else
+        vim.cmd("DiffviewOpen HEAD~1")
+      end
+    end, desc = "Toggle Diff vs HEAD~1" },
 })
 
 
