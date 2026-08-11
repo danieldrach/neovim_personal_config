@@ -40,6 +40,25 @@ wk.add({
     { "<leader>t2", "<cmd>2ToggleTerm<CR>", desc = "Terminal 2" },
     { "<leader>tl", "<cmd>TermSelect<CR>", desc = "List/Select Terminals" },
     { "<leader>ta", "<cmd>ToggleTermToggleAll<CR>", desc = "Toggle All Terminals" },
+    { "<leader>tk", function()
+        local term = require("toggleterm.terminal")
+        local t = vim.b.toggle_number and term.get(vim.b.toggle_number)
+        if t then
+            t:shutdown()                      -- focused terminal
+        else
+            local all = term.get_all(true)    -- true = include hidden
+            if #all == 0 then
+                vim.notify("No terminals", vim.log.levels.WARN)
+            elseif #all == 1 then
+                all[1]:shutdown()
+            else
+                vim.cmd("TermSelect")         -- more than one: pick, then <leader>tk again
+            end
+        end
+      end, desc = "Kill Terminal" },
+    { "<leader>tK", function()
+        for _, t in pairs(require("toggleterm.terminal").get_all(true)) do t:shutdown() end
+      end, desc = "Kill All Terminals" },
 })
 
 
