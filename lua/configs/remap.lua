@@ -32,10 +32,42 @@ vim.api.nvim_set_keymap('n', '<leader>n', ":lua require('oil').open_float('.')<C
 
 
 -- ######### TOGGLETERM REMAPS ###########
+-- Directory of the buffer currently on screen, falling back to the cwd
+local function current_dir()
+    if vim.bo.filetype == "oil" then
+        local ok, oil = pcall(require, "oil")
+        local d = ok and oil.get_current_dir()
+        if d then return d end
+    end
+    local name = vim.api.nvim_buf_get_name(0)
+    local dir = name ~= "" and vim.fn.fnamemodify(name, ":p:h") or ""
+    if dir == "" or vim.fn.isdirectory(dir) == 0 then dir = vim.fn.getcwd() end
+    return dir
+end
+
+-- Toggle terminal `id` (default 1), opening/cd-ing it to the current file's directory
+local function toggle_term_here(id)
+    if vim.bo.buftype == "terminal" then return vim.cmd("ToggleTerm") end -- already in it: just hide
+    local dir = current_dir()
+    local term, created = require("toggleterm.terminal").get_or_create_term(id or 1, dir, "float")
+    if term:is_open() then return term:close() end
+    term:open()
+    if not created and term.dir ~= dir then
+        term:send({ "cd '" .. dir .. "'" }) -- single quotes are literal in both pwsh and POSIX shells
+        term.dir = dir
+    end
+end
+
 wk.add({
     { "<leader>t", group = "Terminal/ToggleTerm" }, -- Group definition
-    { "<leader>tn", "<cmd>ToggleTerm size=80 direction=float<CR>", desc = "New Float Terminal" },
-    { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Toggle Terminal" },
+    { "<leader>tn", function()
+        local next_id = 1
+        for _, t in pairs(require("toggleterm.terminal").get_all(true)) do
+            if t.id >= next_id then next_id = t.id + 1 end
+        end
+        toggle_term_here(next_id)
+      end, desc = "New Float Terminal" },
+    { "<leader>tt", function() toggle_term_here() end, desc = "Toggle Terminal" },
     { "<leader>t1", "<cmd>1ToggleTerm<CR>", desc = "Terminal 1" },
     { "<leader>t2", "<cmd>2ToggleTerm<CR>", desc = "Terminal 2" },
     { "<leader>tl", "<cmd>TermSelect<CR>", desc = "List/Select Terminals" },
